@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 
 const Landingpage = () => {
@@ -17,14 +16,7 @@ const Landingpage = () => {
       />
 
       <div className="absolute inset-0 flex flex-col justify-center  left-40 top-[65%]  text-white p-4">
-        {/* <motion.h1
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-4xl font-serif font-extrabold lg:text-6xl"
-        >
-          Fooderers
-        </motion.h1> */}
+       
         <motion.h2
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
