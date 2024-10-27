@@ -60,31 +60,29 @@ const Navbar = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                   </svg>
                 </div>
-                <ul className="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                <ul className="menu menu-sm dropdown-content bg-white rounded-box z-[1] mt-3 w-52 p-2 shadow">
                   {navbarSections.map((section, index) => (
                     <li key={index}>
                       <button onClick={() => scrollToSection(section.id)}>{section.name}</button>
                     </li>
                   ))}
-                  {userIn ? (
-                    <ModalTrigger className="bg-black dark:bg-white dark:text-black text-white flex justify-center group/modal-btn">
-                      <span onClick={toggleform} className="group-hover/modal-btn:translate-x-40 text-center transition duration-500">
-                        Login
-                      </span>
-                      <div
-                        onClick={toggleform}
-                        className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-white z-20"
-                      >
-                        🍕
-                      </div>
-                    </ModalTrigger>
-                  ) : (
+                  {userIn ?
+                   (
                     <ul>
                       <li>Profile</li>
                       <li>Orders</li>
                       <li onClick={() => setUserIn(true)}>Logout</li>
                     </ul>
-                  )}
+                  ) :
+                  (
+                   
+                  <div>
+                    <span onClick={toggleform} className=" text-center ">
+                      Login
+                       </span>
+                  </div>
+                  )
+                   }
                 </ul>
               </div>
               {/* Logo with onClick to scroll to Home */}
@@ -147,7 +145,7 @@ const Navbar = () => {
                   </div>
                 </div>
                 <div className="card card-compact dropdown-content z-[1] mt-3 w-52 shadow">
-                  <div className="card-body">
+                  <div className="card-body bg-white">
                     <span className="text-lg font-bold">{totalQuantity}</span>
                     <span className="text-info">Subtotal: ${totalAmount}</span>
                     <div className="card-actions">
