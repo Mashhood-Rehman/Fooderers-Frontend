@@ -4,11 +4,7 @@ import Navbar from "./components/Navbar";
 import Reservation from "./components/Reservation";
 import Product from "../src/components/products/Product";
 import Contact from "./Contact";
-// import FastFood from "./components/products/FastFood";
-// import Desi from "./components/products/Desi";
-// import Chinese from "./components/products/Chinese";
-// import Desserts from "./components/products/Desserts";
-// import Drinks from "./components/products/Drinks";
+
 import Landingpage from "./components/products/Landingpage";
 import "./App.css";
 import Dispatch from "./components/Dispatch";
@@ -26,7 +22,7 @@ const App = () => {
   return (
     <div>
 
-      {pagePath == "http://localhost:5174/dispatch" ? <Routes>
+      {pagePath == "http://localhost:5173/dispatch" ? <Routes>
           <Route path="/dispatch"  element= {<Dispatch />} />
         </Routes> : <div>
         <Navbar  
@@ -34,11 +30,7 @@ const App = () => {
 
       <Landingpage />
       <Product />
-      {/* <FastFood  />
-      <Desi  />
-      <Chinese  />
-      <Desserts  />
-      <Drinks  /> */}
+    
       <Reservation />
       <Contact />
       <Routes>
