@@ -4,7 +4,7 @@ const Landingpage = () => {
   return (
     <div
       id="landingpage"
-      className="relative grid grid-cols-1 lg:grid-cols-2  justify-center  mt-16 items-center h-screen"
+      className="relative grid bg-white grid-cols-1 lg:grid-cols-2  justify-center  mt-16 items-center h-screen"
     >
         <motion.h2
           initial={{ y: 100, opacity: 0 }}

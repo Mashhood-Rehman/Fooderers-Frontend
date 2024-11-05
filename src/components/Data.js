@@ -3,7 +3,7 @@ export const navbarSections = [
     { name: "Home", id: "landingpage" },
     { name: "Menu", id: "Product" },
     { name: "Reservation", id: "Reservation" },
-    { name: "Delivery", id: "Delivery" },
+    { name: "FeedBack", id: "FeedBack" },
   ];
   
 

@@ -36,11 +36,11 @@ const Chinese = () => {
             key={p._id}
             className="max-w-xs bg-white rounded-lg border-4 border-transparent hover:border-blue-700 transition ease-in-out duration-200 shadow-md overflow-hidden mb-6"
           >
-            <img
-               src={require(``)} 
-              alt={p.title}
-              className="w-full h-48 object-cover object-center"
-            />
+          <img
+   src={`http://localhost:5000${p.picture}`}
+  alt={p.title}
+  className="w-full h-48 object-cover object-center"
+/>
             <div className="p-4">
               <h2 className="text-lg font-semibold text-gray-800 truncate">
                 {p.name}

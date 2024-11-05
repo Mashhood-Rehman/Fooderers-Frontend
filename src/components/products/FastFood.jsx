@@ -38,7 +38,7 @@ const FastFood = () => {
             className="max-w-xs bg-white rounded-lg border-4 border-transparent hover:border-blue-700 transition ease-in-out duration-200 shadow-md overflow-hidden mb-6"
           >
             <img
-              src={p.picture}
+               src={`http://localhost:5000${p.picture}`}
               alt={p.title}
               className="w-full h-48 object-cover object-center"
             />

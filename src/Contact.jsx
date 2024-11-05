@@ -1,4 +1,3 @@
-import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRef } from "react";
@@ -28,7 +27,7 @@ const Contact = () => {
   };
 
   return (
-    <form ref={form} onSubmit={sendEmail}>
+    <form id="FeedBack" ref={form} onSubmit={sendEmail}>
       <section class="text-gray-600 body-font relative">
         <div class="absolute contactimg bg-gray-300">
           <img

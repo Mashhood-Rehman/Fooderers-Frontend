@@ -121,7 +121,7 @@ const Dispatch = () => {
             <div className="space-y-4 overflow-y-auto h-80">
               {items.map((p) => (
                 <div key={p.id} className="flex items-center overflow-y-auto space-x-4">
-                  <img src={p.picture} alt={p.title} className="w-16 h-16 object-cover rounded-full" />
+                  <img  src={`http://localhost:5000${p.picture}`} alt={p.title} className="w-16 h-16 object-cover rounded-full" />
                   <div className="flex-1">
                     <h3 className="font-semibold">{p.name}</h3>
                     <p className="text-gray-600 text-sm">{p.description}</p>

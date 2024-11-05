@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { removeFromCart } from "./stores/cartSlice";
+import { decrementQuantity, incrementQuantity, removeFromCart } from "./stores/cartSlice";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = ({open , setOpen}) => {
@@ -38,7 +38,7 @@ const Sidebar = ({open , setOpen}) => {
               <div className="  ">
               {items.map((p) => (
     <div key={p.id} className="p-4 flex flex-col md:flex-row items-center md:items-start">
-        <img src={p.picture} alt={p.title} className="w-24 h-24 object-cover rounded-full mb-4 md:mb-0 md:mr-4" />
+        <img  src={`http://localhost:5000${p.picture}`}alt={p.title} className="w-24 h-24 object-cover rounded-full mb-4 md:mb-0 md:mr-4" />
         <div className="flex-1">
             <h2 className="text-xl font-medium text-gray-800">{p.name}</h2>
             <div className="flex items-center space-x-4 mt-2">
@@ -46,7 +46,7 @@ const Sidebar = ({open , setOpen}) => {
                 <p className="text-gray-600 text-xl">{p.quantity}</p>
                 <button className="text-black text-3xl rounded-full px-2 py-1 hover:bg-blue-600 transition duration-300" onClick={() => dispatch(incrementQuantity(p))}>+</button>
             </div>
-            <p className="text-gray-600 mt-2">Price: ${p.price.toFixed(2)}</p>
+            <p className="text-gray-600 mt-2">Price: ${p.price }</p>
         </div>
         <button
             onClick={() => dispatch(removeFromCart(p._id))}
@@ -59,10 +59,10 @@ const Sidebar = ({open , setOpen}) => {
 
           <div className=" flex flex-col  mt-4">
             <button className="font-semibold tracking-tight text-xl">
-              Total price: ${totalAmount}
+              Total price: ${totalAmount +5}
             </button>
-            <button className="font-semibold tracking-tight text-xl">
-              Delivery Fee: $5
+            <button className="font-semibold text-gray-300 text-sm tracking-tight ">
+              (Delivery Fee: $5)
             </button>
           </div>
           <div className="mt-4">

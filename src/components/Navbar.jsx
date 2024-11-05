@@ -37,7 +37,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className={`flex z-50 bg-transparent items-center`}>
+    <div className={`flex z-50 bg-white items-center`}>
       <div>
         <Sidebar open={open} setOpen={setOpen} />
         <Modal>
@@ -85,7 +85,6 @@ const Navbar = () => {
                    }
                 </ul>
               </div>
-              {/* Logo with onClick to scroll to Home */}
               <img
                 src={"logoo.jpeg"} 
                 alt="Logo"
