@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import { Modal, ModalTrigger } from "./OK";
 import Login from "../auth/Login";
@@ -8,24 +8,31 @@ import { navbarSections } from "./Data";
 
 const Navbar = () => {
   const [BGColor, SetBGColor] = useState("bg-transparent");
+  const [open, setOpen] = useState(false);
+  const [formclose, setFormClose] = useState(false); // Default to closed
+  const [userIn, setUserIn] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       SetBGColor(window.scrollY > 30 ? "bg-white" : "bg-transparent");
     };
 
+    // Check local storage to see if the login form was previously opened
+    const storedFormClose = localStorage.getItem("formclose") === "true";
+    setFormClose(storedFormClose);
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const totalAmount = useSelector(state => state.cart.totalAmount);
-  const totalQuantity = useSelector(state => state.cart.totalQuantity);
-  const [open, setOpen] = useState(false);
-  const [formclose, setFormClose] = useState(true);
-  const toggleform = () => setFormClose(!formclose);
-  const [userIn, setUserIn] = useState(false);
+  const totalAmount = useSelector((state) => state.cart.totalAmount);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
-  // Scroll to section
+  const toggleForm = () => {
+    setFormClose(!formclose);
+    localStorage.setItem("formclose", !formclose); // Save state to local storage
+  };
+
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
@@ -37,7 +44,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className={`flex z-50 bg-white items-center`}>
+    <div className="flex z-50 bg-white items-center">
       <div>
         <Sidebar open={open} setOpen={setOpen} />
         <Modal>
@@ -52,7 +59,7 @@ const Navbar = () => {
                 <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
+                    className="h-5 text-black w-5"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -66,27 +73,25 @@ const Navbar = () => {
                       <button onClick={() => scrollToSection(section.id)}>{section.name}</button>
                     </li>
                   ))}
-                  {userIn ?
-                   (
+                  {userIn ? (
                     <ul>
                       <li>Profile</li>
                       <li>Orders</li>
-                      <li onClick={() => setUserIn(true)}>Logout</li>
+                      <li onClick={() => setUserIn(false)}>Logout</li>
                     </ul>
-                  ) :
-                  (
-                   
-                  <div>
-                    <span onClick={toggleform} className=" text-center ">
-                      Login
-                       </span>
-                  </div>
-                  )
-                   }
+                  ) : (
+                    <div>
+                      <ModalTrigger className="dark:bg-white dark:text-black text-black flex justify-center group/modal-btn">
+                        <span onClick={toggleForm} className="text-center cursor-pointer">
+                          Login
+                        </span>
+                      </ModalTrigger>
+                    </div>
+                  )}
                 </ul>
               </div>
               <img
-                src={"logoo.jpeg"} 
+                src={"logoo.jpeg"}
                 alt="Logo"
                 className="w-24 h-20 cursor-pointer"
                 onClick={() => scrollToSection("landingpage")}
@@ -102,31 +107,23 @@ const Navbar = () => {
                   </li>
                 ))}
                 <li>
-                  {userIn ?
-                   (
+                  {userIn ? (
                     <ul>
                       <li>Profile</li>
                       <li>Orders</li>
-                      <li onClick={() => setUserIn(true)}>Logout</li>
+                      <li onClick={() => setUserIn(false)}>Logout</li>
                     </ul>
-                  ) :
-                  (
+                  ) : (
                     <ModalTrigger className="bg-black dark:bg-white dark:text-black text-white flex justify-center group/modal-btn">
-                      <span onClick={toggleform} className="group-hover/modal-btn:translate-x-40 text-center transition duration-500">
+                      <span onClick={toggleForm} className="text-center cursor-pointer">
                         Login
                       </span>
-                      <div
-                        onClick={toggleform}
-                        className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-white z-20"
-                      >
-                        🍕
-                      </div>
                     </ModalTrigger>
-                  ) }
+                  )}
                 </li>
               </ul>
             </div>
-            <Login toggleform={toggleform} setFormClose={setFormClose} formclose={formclose} />
+            <Login setFormClose={setFormClose} formclose={formclose} />
             <div className="flex-none px-10">
               <div className="dropdown dropdown-end">
                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">

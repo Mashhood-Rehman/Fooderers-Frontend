@@ -66,21 +66,24 @@ const Sidebar = ({open , setOpen}) => {
             </button>
           </div>
           <div className="mt-4">
-            <NavLink to= "/dispatch" target="_blank"
-            >
-              {totalAmount >90 ? 
+            
+            {totalAmount >90 ? 
+            (<div>
+
+            <NavLink to= "/dispatch" target="_blank">
               
               < button  className="w-full py-2 bg-blue-500  text-white font-bold rounded-md mb-1">
 
               Checkout
               </button>
+              </NavLink>
+                </div>)
               :
               <p className="font-semibold font-sans     flex text-center justify-center ">
 
               "Minimum Delivery $100 "
               </p>
                }
-            </NavLink>
           </div>
         </div>
             </>

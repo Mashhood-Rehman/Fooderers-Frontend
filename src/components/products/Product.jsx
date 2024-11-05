@@ -41,7 +41,7 @@ const Product = () => {
       <h1 className="py-5 md:px-10 lg:px-5 px-3 lg:mx-40 md:mx-20 mx-5 font-bold text-4xl text-gray-800">
         Menu
       </h1>
-      <div className="grid grid-cols-3 items-center justify-center lg:grid-cols-6 pb-5">
+      <div className="grid grid-cols-3  items-center justify-center lg:grid-cols-6 pb-5">
         <button className="hover:bg-blue-600 py-2 px-5 rounded-xl duration-300 ease-in-out" onClick={() => setActiveTab("All")}>All</button>
         <button className="hover:bg-blue-600 py-2 px-5 rounded-xl duration-300 ease-in-out" onClick={() => setActiveTab("Fast Food")}>Fast Food</button>
         <button className="hover:bg-blue-600 py-2 px-5 rounded-xl duration-300 ease-in-out" onClick={() => setActiveTab("Desi")}>Desi</button>
@@ -49,7 +49,7 @@ const Product = () => {
         <button className="hover:bg-blue-600 py-2 px-5 rounded-xl duration-300 ease-in-out" onClick={() => setActiveTab("Desserts")}>Desserts</button>
         <button className="hover:bg-blue-600 py-2 px-5 rounded-xl duration-300 ease-in-out" onClick={() => setActiveTab("Drinks")}>Drinks</button>
       </div>
-      <div className="overflow-hidden">
+      <div className="overflow-hidden bg-gray-400">
         <motion.div
           key={activeTab} // Key is important for re-mounting
           initial={{ opacity: 0 }} // Initial state

@@ -23,7 +23,8 @@ const Dispatch = () => {
     setData({ ...data, [name]: value });
   };
   
-  const makePayment = async () => {
+  const makePayment = async (e) => {
+    e.preventDefault()
     const stripe =  await loadStripe("pk_test_51PkqrUAusfi4SBU0nV1EbD954JcfiSCaQdg7PjDDb9hQxb0r9335d3eSpZQlALEP9Sd3BtvwQ1tSS5vnDiwg5bjF00MWofR8GZ");
   
     const body = {
@@ -49,14 +50,12 @@ const Dispatch = () => {
       console.error('Error creating checkout session:', error);
     }
   };
-  const placeOrder = async (e) => {
-    e.preventDefault()
-  }
+  
 
       
   return (
 <>
-<form onSubmit={placeOrder}>
+<form onSubmit={makePayment}>
 
       <div className='container lg:flex lg:flex-row md:flex-col md:flex  justify-evenly'>
 
