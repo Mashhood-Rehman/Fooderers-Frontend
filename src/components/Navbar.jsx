@@ -101,7 +101,7 @@ const Navbar = () => {
               <ul className="menu menu-horizontal px-1">
                 {navbarSections.map((section, index) => (
                   <li key={index}>
-                    <button onClick={() => scrollToSection(section.id)} className="hover:text-blue-700 text-xl">
+                    <button onClick={() => scrollToSection(section.id)} className="hover:text-orange-500 text-xl">
                       {section.name}
                     </button>
                   </li>
@@ -114,7 +114,7 @@ const Navbar = () => {
                       <li onClick={() => setUserIn(false)}>Logout</li>
                     </ul>
                   ) : (
-                    <ModalTrigger className="bg-black dark:bg-blue-500 dark:text-black text-white flex justify-center group/modal-btn">
+                    <ModalTrigger className="bg-black dark:bg-orange-500 dark:text-black text-white flex justify-center group/modal-btn">
                       <span onClick={toggleForm} className="text-center cursor-pointer">
                         Login
                       </span>

@@ -29,10 +29,8 @@ const App = () => {
         </Routes> : <div>
         <div className="relative bg-[url('/bg-hero.jpeg')] bg-cover bg-center bg-black">
 
-  {/* Navy blue overlay */}
   <div className="absolute inset-0 bg-black bg-opacity-90 "></div>
 
-  {/* Content */}
   <Navbar />
   <Landingpage />
 
