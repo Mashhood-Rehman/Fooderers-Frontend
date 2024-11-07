@@ -37,25 +37,32 @@ const Product = () => {
   };
 
   return (
-    <div id="Product" className="bg-white m-auto p-auto">
-      <h1 className="py-5 md:px-10 lg:px-5 px-3 lg:mx-40 md:mx-20 mx-5 font-bold text-4xl text-gray-800">
-        Menu
-      </h1>
-      <div className="grid grid-cols-3  items-center justify-center lg:grid-cols-6 pb-5">
-        <button className="hover:bg-blue-600 py-2 px-5 rounded-xl duration-300 ease-in-out" onClick={() => setActiveTab("All")}>All</button>
-        <button className="hover:bg-blue-600 py-2 px-5 rounded-xl duration-300 ease-in-out" onClick={() => setActiveTab("Fast Food")}>Fast Food</button>
-        <button className="hover:bg-blue-600 py-2 px-5 rounded-xl duration-300 ease-in-out" onClick={() => setActiveTab("Desi")}>Desi</button>
-        <button className="hover:bg-blue-600 py-2 px-5 rounded-xl duration-300 ease-in-out" onClick={() => setActiveTab("Chinese")}>Chinese</button>
-        <button className="hover:bg-blue-600 py-2 px-5 rounded-xl duration-300 ease-in-out" onClick={() => setActiveTab("Desserts")}>Desserts</button>
-        <button className="hover:bg-blue-600 py-2 px-5 rounded-xl duration-300 ease-in-out" onClick={() => setActiveTab("Drinks")}>Drinks</button>
+    <div id="Product" className="bg-white m-auto p-5 lg:px-20">
+      <h1 className="text-4xl font-bold text-gray-800 text-center mb-8">Menu</h1>
+      
+      {/* Tabs */}
+      <div className="flex flex-wrap justify-center gap-4 mb-8">
+        {["All", "Fast Food", "Desi", "Chinese", "Desserts", "Drinks"].map((tab) => (
+          <button
+            key={tab}
+            className={`py-2 px-4 rounded-lg font-medium ${
+              activeTab === tab ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-700"
+            } hover:bg-blue-600 hover:text-white transition-colors duration-300`}
+            onClick={() => setActiveTab(tab)}
+          >
+            {tab}
+          </button>
+        ))}
       </div>
-      <div className="overflow-hidden bg-gray-400">
+      
+      {/* Content */}
+      <div className=" p-5 rounded-lg ">
         <motion.div
-          key={activeTab} // Key is important for re-mounting
-          initial={{ opacity: 0 }} // Initial state
-          animate={{ opacity: 1 }} // Animation on mount
-          exit={{ opacity: 0 }} // Animation on unmount
-          transition={{ duration: 0.5 }} // Transition duration
+          key={activeTab}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
         >
           {renderContent()}
         </motion.div>

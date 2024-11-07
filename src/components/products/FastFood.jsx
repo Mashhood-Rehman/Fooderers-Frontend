@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts } from '../stores/product';
 import { addToCart } from '../stores/cartSlice';
+import { Icon } from '@iconify/react/dist/iconify.js';
 
 const FastFood = () => { 
   const dispatch = useDispatch();
@@ -32,30 +33,31 @@ const FastFood = () => {
         Fast Food
       </h1>
       <div className="flex flex-wrap sm:flex-wrap justify-start gap-4 p-4 overflow-x-auto hide-scrollbar">
-        {filteredProducts.map((p) => (
-          <div
-            key={p._id}
-            className="max-w-xs bg-white rounded-lg border-4 border-transparent hover:border-blue-700 transition ease-in-out duration-200 shadow-md overflow-hidden mb-6"
-          >
-            <img
-               src={`http://localhost:5000${p.picture}`}
-              alt={p.title}
-              className="w-full h-48 object-cover object-center"
-            />
-            <div className="p-4">
-              <h2 className="text-lg font-semibold text-gray-800 truncate">
-                {p.name}
-              </h2>
-              <p className="text-gray-600">${p.price}</p>
-              <button
-                onClick={() => dispatch(addToCart(p))}
-                className="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200 ease-in-out"
-              >
-                Add to cart
-              </button>
-            </div>
-          </div>
-        ))}
+      {filteredProducts?.map((p) => (
+  <div
+    key={p._id}
+    className="flex items-center space-y-6 bg-white  p-4   transition ease-in-out duration-200"
+  >
+    <img
+      src={`http://localhost:5000${p.picture}`}
+      alt={p.title}
+      className="w-16 h-16 object-cover object-center rounded-full"
+    />
+    <div className="ml-4 flex-grow">
+      <h2 className="text-lg font-semibold border-b p-2 border-gray-200 text-gray-800">{p.name}</h2>
+      <p className="text-gray-600 p-2">Lorem ipsum clita erat amet dolor justo diam</p>
+    </div>
+    <div className="flex items-center space-x-4">
+      <span className="text-orange-600 text-xl font-semibold">${p.price}</span>
+      <button
+        onClick={() => dispatch(addToCart(p))}
+        className=" text-orange-500 p-2 rounded-lg  transition duration-200 ease-in-out flex items-center"
+      >
+      <Icon icon="mdi-light:cart" className=' h-8 w-8'   />
+      </button>
+    </div>
+  </div>
+))}
       </div>
     </div>
   );

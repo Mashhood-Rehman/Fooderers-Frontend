@@ -24,113 +24,122 @@ const Reservation = () => {
   };
   const notify = () => toast.success("Your seats will be  reserved");
   return (
-    <div id="Reservation">
-      <div class="flex items-center justify-evenly bg-blue-900 brightness-95   p-12">
-        <div class="mx-auto  w-full max-w-[550px] ">
-          <form>
-            <div class="-mx-3 flex flex-wrap relative">
-              <div class=" w-full px-3 sm:w-1/2">
-                <div class="mb-5">
-                  <label
-                    for="fName"
-                    name="fname"
-                    class="mb-3 block text-base font-medium text-[#07074D]"
-                  >
-                    First Name
-                  </label>
-                  <input
-                    name="fName"
-                    type="fname"
-                    id="fName"
-                    placeholder="First Name"
-                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                  />
-                </div>
-              </div>
-              <div class="w-full px-3 sm:w-1/2">
-                <div class="mb-5">
-                  <label
-                    for="lName"
-                    class="mb-3 block text-base font-medium text-[#07074D]"
-                  >
-                    Last Name
-                  </label>
-                  <input
-                    name="lName"
-                    type="lname"
-                    id="lName"
-                    placeholder="Last Name"
-                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                  />
-                </div>
+    <div id="Reservation" className=" bg-orange-500">
+    <div className="flex items-center justify-center p-12  shadow-lg">
+      <div className="mx-auto w-full max-w-4xl p-6 bg-white rounded-lg shadow-lg">
+        <h2   style={{
+                fontFamily: 'Dancing Script, cursive',
+                fontSize: '2rem', // You can adjust the size as per your preference
+                fontWeight: '700', // This gives it a bold, cursive effect
+              }} className="text-3xl font-semibold text-center text-orange-500 mb-8">
+           <span> -</span>Reservation<span> -</span>
+        </h2>
+        <form>
+          <div className=" grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="w-full sm:w-1/2">
+              <div className="mb-5">
+                <label
+                  htmlFor="fName"
+                  name="fname"
+                  className="block text-base font-medium text-gray-700 mb-3"
+                >
+                  First Name
+                </label>
+                <input
+                  name="fName"
+                  type="text"
+                  id="fName"
+                  placeholder="First Name"
+                  className="w-full rounded-md border border-gray-300 py-3 px-6 text-base text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                />
               </div>
             </div>
-            <div class="mb-5">
-              <label
-                for="guest"
-                class="mb-3 block text-base font-medium text-[#07074D]"
-              >
-                How many guest are you bringing?
-              </label>
-              <input
-                type="guest"
-                name="guest"
-                id="guest"
-                placeholder="5"
-                min="0"
-                class="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-              />
-            </div>
-
-            <div class="-mx-3 flex flex-wrap">
-              <div class="w-full px-3 sm:w-1/2">
-                <div class="mb-5">
-                  <label
-                    for="date"
-                    class="mb-3 block text-base font-medium text-[#07074D]"
-                  >
-                    Date
-                  </label>
-                  <input
-                    type="date"
-                    name="date"
-                    id="date"
-                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                  />
-                </div>
-              </div>
-              <div class="w-full px-3 sm:w-1/2">
-                <div class="mb-5">
-                  <label
-                    for="time"
-                    class="mb-3 block text-base font-medium text-[#07074D]"
-                  >
-                    Time
-                  </label>
-                  <input
-                    type="time"
-                    name="time"
-                    id="time"
-                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                  />
-                </div>
+            <div className="w-full sm:w-1/2">
+              <div className="mb-5">
+                <label
+                  htmlFor="lName"
+                  className="block text-base font-medium text-gray-700 mb-3"
+                >
+                  Last Name
+                </label>
+                <input
+                  name="lName"
+                  type="text"
+                  id="lName"
+                  placeholder="Last Name"
+                  className="w-full rounded-md border border-gray-300 py-3 px-6 text-base text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                />
               </div>
             </div>
-
-            <div>
-              <button
-                type="button"
-                class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-                onClick={notify}
-              >
-                Submit
-              </button>
-              <ToastContainer theme="dark" position="bottom-right" />
+          </div>
+  
+          <div className="mb-5">
+            <label
+              htmlFor="guest"
+              className="block text-base font-medium text-gray-700 mb-3"
+            >
+              How many guests are you bringing?
+            </label>
+            <input
+              type="number"
+              name="guest"
+              id="guest"
+              placeholder="Number of Guests"
+              min="0"
+              className="w-full rounded-md border border-gray-300 py-3 px-6 text-base text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500"
+            />
+          </div>
+  
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="w-full sm:w-1/2">
+              <div className="mb-5">
+                <label
+                  htmlFor="date"
+                  className="block text-base font-medium text-gray-700 mb-3"
+                >
+                  Date
+                </label>
+                <input
+                  type="date"
+                  name="date"
+                  id="date"
+                  className="w-full rounded-md border border-gray-300 py-3 px-6 text-base text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                />
+              </div>
             </div>
-          </form>
-        </div>
+            <div className="w-full sm:w-1/2">
+              <div className="mb-5">
+                <label
+                  htmlFor="time"
+                  className="block text-base font-medium text-gray-700 mb-3"
+                >
+                  Time
+                </label>
+                <input
+                  type="time"
+                  name="time"
+                  id="time"
+                  className="w-full rounded-md border border-gray-300 py-3 px-6 text-base text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                />
+              </div>
+            </div>
+          </div>
+  
+          <div className="mt-6 flex justify-center">
+            <button
+              type="button"
+              className="bg-orange-600 text-white py-2 px-6 rounded-md hover:bg-orange-700 transition duration-300"
+              onClick={notify}
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+        <ToastContainer theme="dark" position="bottom-right" />
       </div>
     </div>
+  </div>
+  
   );
 };
 

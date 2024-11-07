@@ -36,25 +36,25 @@ const Drinks = () => {
       {filteredProducts?.map((p) => (
   <div
     key={p._id}
-    className="relative max-w-xs bg-white rounded-lg border-4 border-transparent hover:border-blue-700 transition ease-in-out duration-200 shadow-md overflow-hidden mb-6"
+    className="flex items-center space-y-6 bg-white  p-4   transition ease-in-out duration-200"
   >
     <img
-      src={p.picture}
+      src={`http://localhost:5000${p.picture}`}
       alt={p.title}
-      className="w-full h-40 object-cover object-center"
+      className="w-16 h-16 object-cover object-center rounded-full"
     />
-    <button
-      onClick={() => dispatch(addToCart(p))}
-      className="absolute top-[55%] right-1  text-green-500 flex items-center justify-center "
-      style={{ zIndex: 10 }}
-    >
-<Icon icon="solar:add-circle-outline" className='w-10 h-10        rounded-full text-blue-600 hover:text-blue-900 transition duration-200 ease-in-out ' />    </button>
-    <div className="p-4">
-      <h2 className="text-md font-semibold text-gray-800 truncate">
-        {p.name}
-      </h2>
-      <p className="text-gray-600 text-sm">${p.price}</p>
-      <p className="text-gray-600 text-sm truncate">{p.description}</p>
+    <div className="ml-4 flex-grow">
+      <h2 className="text-lg font-semibold border-b p-2 border-gray-200 text-gray-800">{p.name}</h2>
+      <p className="text-gray-600 p-2">Lorem ipsum clita erat amet dolor justo diam</p>
+    </div>
+    <div className="flex items-center space-x-4">
+      <span className="text-orange-600 text-xl font-semibold">${p.price}</span>
+      <button
+        onClick={() => dispatch(addToCart(p))}
+        className=" text-orange-500 p-2 rounded-lg  transition duration-200 ease-in-out flex items-center"
+      >
+      <Icon icon="mdi-light:cart" className=' h-8 w-8'   />
+      </button>
     </div>
   </div>
 ))}

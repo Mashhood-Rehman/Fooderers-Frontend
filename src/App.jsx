@@ -13,6 +13,8 @@ import Success from "./components/Success";
 import {ToastContainer} from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
+import Features from "./components/Features";
+import AboutUs from "./components/AboutUs";
 
 const App = () => {
   const pagePath = window.location.href;
@@ -25,10 +27,19 @@ const App = () => {
       {pagePath == "http://localhost:5173/dispatch" ? <Routes>
           <Route path="/dispatch"  element= {<Dispatch />} />
         </Routes> : <div>
-        <Navbar  
-      />
+        <div className="relative bg-[url('/bg-hero.jpeg')] bg-cover bg-center bg-black">
 
-      <Landingpage />
+  {/* Navy blue overlay */}
+  <div className="absolute inset-0 bg-black bg-opacity-90 "></div>
+
+  {/* Content */}
+  <Navbar />
+  <Landingpage />
+
+</div>
+<Features />
+<AboutUs />
+
       <Product />
     
       <Reservation />

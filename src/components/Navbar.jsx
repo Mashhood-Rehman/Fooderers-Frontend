@@ -114,7 +114,7 @@ const Navbar = () => {
                       <li onClick={() => setUserIn(false)}>Logout</li>
                     </ul>
                   ) : (
-                    <ModalTrigger className="bg-black dark:bg-white dark:text-black text-white flex justify-center group/modal-btn">
+                    <ModalTrigger className="bg-black dark:bg-blue-500 dark:text-black text-white flex justify-center group/modal-btn">
                       <span onClick={toggleForm} className="text-center cursor-pointer">
                         Login
                       </span>
