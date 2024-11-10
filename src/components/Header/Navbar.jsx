@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
-import { Modal, ModalTrigger } from "./OK";
-import Login from "../auth/Login";
-import Sidebar from "./Sidebar";
-import { navbarSections } from "./Data";
+import { Modal, ModalTrigger } from "../OK";
+import Login from "../../auth/Login";
+import Sidebar from "../Sidebar";
+import { navbarSections } from "../Data";
 
 const Navbar = () => {
   const [BGColor, SetBGColor] = useState("bg-transparent");
@@ -68,11 +68,18 @@ const Navbar = () => {
                   </svg>
                 </div>
                 <ul className="menu menu-sm dropdown-content bg-white rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                  {navbarSections.map((section, index) => (
-                    <li key={index}>
-                      <button onClick={() => scrollToSection(section.id)}>{section.name}</button>
-                    </li>
-                  ))}
+                {navbarSections.map((section, index) => (
+    <li key={index} className="relative">
+      <button
+        onClick={() => scrollToSection(section.id)}
+        className="hover:text-orange-500 text-xl"
+      >
+        {section.name}
+        <div className="underline"></div>
+      </button>
+    </li>
+  ))}
+
                   {userIn ? (
                     <ul>
                       <li>Profile</li>
@@ -91,13 +98,13 @@ const Navbar = () => {
                 </ul>
               </div>
               <img
-                src={"logoo.jpeg"}
+                src={"logoo.jpeg.png"}
                 alt="Logo"
-                className="w-24 h-20 cursor-pointer"
+                className="w-32 h-32 ml-8 cursor-pointer"
                 onClick={() => scrollToSection("landingpage")}
               />
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div className="navbar-center hidden lg:flex items-center jc">
               <ul className="menu menu-horizontal px-1">
                 {navbarSections.map((section, index) => (
                   <li key={index}>
@@ -161,3 +168,9 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
+
+
+

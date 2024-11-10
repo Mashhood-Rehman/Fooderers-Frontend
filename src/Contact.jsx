@@ -29,6 +29,7 @@ const Contact = () => {
 
   return (
     <section
+    id="Contact"
       className="relative bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: "url('/bgpic.jpeg')",

@@ -32,7 +32,7 @@ const Desi = () => {
   return (
 
     <div id='Desi' className='desi'>
-      <h1 className='bg-gradient-to-r from-blue-700 to-blue-950 font-bold text-transparent bg-clip-text  text-2xl ml-[10%]'>
+       <h1 className=' bg-orange-500 font-bold text-transparent bg-clip-text text-2xl ml-[10%]'>
 
       Desi
       </h1>

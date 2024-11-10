@@ -50,7 +50,7 @@ const Reservation = () => {
                   type="text"
                   id="fName"
                   placeholder="First Name"
-                  className="w-full rounded-md border border-gray-300 py-3 px-6 text-base text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full rounded-md border border-gray-300 py-3 px-6 text-base text-gray-700 focus:outline-none "
                 />
               </div>
             </div>
@@ -67,7 +67,7 @@ const Reservation = () => {
                   type="text"
                   id="lName"
                   placeholder="Last Name"
-                  className="w-full rounded-md border border-gray-300 py-3 px-6 text-base text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full rounded-md border border-gray-300 py-3 px-6 text-base text-gray-700 focus:outline-none "
                 />
               </div>
             </div>
@@ -86,7 +86,7 @@ const Reservation = () => {
               id="guest"
               placeholder="Number of Guests"
               min="0"
-              className="w-full rounded-md border border-gray-300 py-3 px-6 text-base text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full rounded-md border border-gray-300 py-3 px-6 text-base text-gray-700 focus:outline-none "
             />
           </div>
   
@@ -103,7 +103,7 @@ const Reservation = () => {
                   type="date"
                   name="date"
                   id="date"
-                  className="w-full rounded-md border border-gray-300 py-3 px-6 text-base text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full rounded-md border border-gray-300 py-3 px-6 text-base text-gray-700 focus:outline-none "
                 />
               </div>
             </div>
@@ -119,7 +119,7 @@ const Reservation = () => {
                   type="time"
                   name="time"
                   id="time"
-                  className="w-full rounded-md border border-gray-300 py-3 px-6 text-base text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full rounded-md border border-gray-300 py-3 px-6 text-base text-gray-700 focus:outline-none "
                 />
               </div>
             </div>

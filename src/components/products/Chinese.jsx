@@ -28,7 +28,7 @@ const Chinese = () => {
 
   return (
     <div id='Chinese' className='overflow-x-hidden'>
-      <h1 className='bg-gradient-to-r from-blue-700 to-blue-950 font-bold text-transparent bg-clip-text text-2xl ml-[10%]'>
+      <h1 className=' bg-orange-500 font-bold text-transparent bg-clip-text text-2xl ml-[10%]'>
         Chinese
       </h1>
       <div className="flex flex-nowrap sm:flex-wrap justify-start gap-4 p-4 overflow-x-auto hide-scrollbar">

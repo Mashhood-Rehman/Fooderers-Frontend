@@ -46,3 +46,27 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+
+ul {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove padding from ul */
+}
+
+li {
+  position: relative; /* Position relative to place underline */
+}
+
+.underline {
+  position: absolute;
+  left: 0;
+  bottom: 0; /* Adjusted to position directly under text */
+  height: 2px; 
+  background-color: #c4a053; /* Same as Tailwind's orange-500 */
+  width: 0; 
+  transition: width 0.3s ease-in-out; 
+}
+
+li:hover .underline {
+  width: 100%; 
+}

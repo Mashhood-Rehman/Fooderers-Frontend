@@ -28,8 +28,7 @@ const Dessert = () => {
   }
   return (
     <div id='Dessert'>
-      <h1 className='bg-gradient-to-r from-blue-700 to-blue-950 font-bold text-transparent bg-clip-text  text-2xl ml-[10%]'>
-
+     <h1 className=' bg-orange-500 font-bold text-transparent bg-clip-text text-2xl ml-[10%]'>
        Dessert
       </h1>
        <div className="flex flex-wrap  justify-start gap-4 p-4">

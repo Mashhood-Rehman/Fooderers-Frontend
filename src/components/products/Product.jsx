@@ -38,7 +38,14 @@ const Product = () => {
 
   return (
     <div id="Product" className="bg-white m-auto p-5 lg:px-20">
-      <h1 className="text-4xl font-bold text-gray-800 text-center mb-8">Menu</h1>
+       <h2   style={{
+                fontFamily: 'Dancing Script, cursive',
+                fontSize: '2rem', // You can adjust the size as per your preference
+                fontWeight: '4rem', // This gives it a bold, cursive effect
+              }} className="text-3xl font-bold text-center text-orange-500 mb-8">
+           <span> -</span>Food Menu<span> -</span>
+        </h2>
+        <h1 className=" flex justify-center text-xl items-center font-bold  lg:text-4xl text-black font-sans tracking-wide mb-4">Most Popular Items</h1>
       
       {/* Tabs */}
       <div className="flex flex-wrap justify-center gap-4 mb-8">
@@ -46,7 +53,7 @@ const Product = () => {
           <button
             key={tab}
             className={`py-2 px-4 rounded-lg font-medium ${
-              activeTab === tab ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-700"
+              activeTab === tab ? "bg-blue-600 text-white" : " text-gray-700"
             } hover:bg-blue-600 hover:text-white transition-colors duration-300`}
             onClick={() => setActiveTab(tab)}
           >
