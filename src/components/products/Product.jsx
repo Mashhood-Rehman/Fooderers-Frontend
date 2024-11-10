@@ -63,8 +63,8 @@ const Product = () => {
       </div>
       
       {/* Content */}
-      <div className=" p-5 rounded-lg ">
-        <motion.div
+      <div className="  p-5 rounded-lg ">
+        <motion.div className="grid grid-cols-1 lg:grid-cols-2"
           key={activeTab}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
