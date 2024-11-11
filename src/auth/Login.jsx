@@ -29,7 +29,7 @@ const Login = ({ setFormClose, formclose }) => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/login", user);
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/login`, user);
       if (response.data.success) {
         localStorage.setItem("token", response.data.token);
         toast.success("User logged in");

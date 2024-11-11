@@ -39,7 +39,7 @@ const FastFood = () => {
     className="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 bg-white p-4 sm:p-6 transition ease-in-out duration-200"
   >
     <img
-      src={`http://localhost:5000${p.picture}`}
+     src={`${import.meta.env.VITE_API_BASE_URL}${p.picture}`}
       alt={p.title}
       className="w-16 h-16 sm:w-24 sm:h-24 object-cover object-center rounded-full mx-auto sm:mx-0"
     />

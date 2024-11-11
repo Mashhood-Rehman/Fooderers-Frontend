@@ -1,28 +1,32 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import emailjs from "@emailjs/browser";
 
 const Reservation = () => {
   const form = useRef();
-
   const sendEmail = (e) => {
     e.preventDefault();
-
+  
     emailjs
-      .sendForm("service_ivym3ci", "template_t6d9ov7", form.current, {
-        publicKey: "XBAnFhurF4KgXVDxC",
-      })
+      .sendForm(
+        `${import.meta.env.VITE_EMAILJS_SERVICEKEY}`,
+        `${import.meta.env.VITE_EMAILJS_TEMPLATEKEY}`,
+        form.current, // Pass the form reference correctly
+        {
+          publicKey: `${import.meta.env.VITE_EMAILJS_PUBLICKEY}`,
+        }
+      )
       .then(
         () => {
-          console.log("SUCCESS!");
+          toast.success("Your seats will be reserved shortly");
         },
-        (error) => {
-          console.log("FAILED...", error.text);
+        (err) => {
+          toast.error("Error", err);
         }
       );
   };
-  const notify = () => toast.success("Your seats will be  reserved");
+  
   return (
     <div id="Reservation" className=" bg-orange-500">
     <div className="flex items-center justify-center p-12  shadow-lg">
@@ -34,7 +38,7 @@ const Reservation = () => {
               }} className="text-3xl font-semibold text-center text-orange-500 mb-8">
            <span> -</span>Reservation<span> -</span>
         </h2>
-        <form>
+        <form ref={form} onSubmit={sendEmail}>
           <div className=" grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="w-full sm:w-1/2">
               <div className="mb-5">
@@ -127,9 +131,8 @@ const Reservation = () => {
   
           <div className="mt-6 flex justify-center">
             <button
-              type="button"
+           type="submit"
               className="bg-orange-600 text-white py-2 px-6 rounded-md hover:bg-orange-700 transition duration-300"
-              onClick={notify}
             >
               Submit
             </button>

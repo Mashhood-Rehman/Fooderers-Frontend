@@ -18,7 +18,7 @@ const Signup = ({ setModal }) => {
     event.preventDefault();
     
     try {
-      const response = await axios.post("http://localhost:5000/usercreate", user);
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/usercreate`, user);
       if (response.data.success) {
         toast.success(`Account Created,Please Sign in`);
       }

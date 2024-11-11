@@ -38,7 +38,7 @@ const Sidebar = ({open , setOpen}) => {
               <div className="  ">
               {items.map((p) => (
     <div key={p.id} className="p-4 flex flex-col md:flex-row items-center md:items-start">
-        <img  src={`http://localhost:5000${p.picture}`}alt={p.title} className="w-24 h-24 object-cover rounded-full mb-4 md:mb-0 md:mr-4" />
+        <img  src={`${import.meta.env.VITE_API_BASE_URL}${p.picture}`}alt={p.title} className="w-24 h-24 object-cover rounded-full mb-4 md:mb-0 md:mr-4" />
         <div className="flex-1">
             <h2 className="text-xl font-medium text-gray-800">{p.name}</h2>
             <div className="flex items-center space-x-4 mt-2">

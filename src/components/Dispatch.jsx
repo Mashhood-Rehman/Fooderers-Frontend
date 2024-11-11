@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Icon } from '@iconify/react';
 import { removeFromCart, incrementQuantity, decrementQuantity } from './stores/cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -25,7 +25,8 @@ const Dispatch = () => {
   
   const makePayment = async (e) => {
     e.preventDefault()
-    const stripe =  await loadStripe("pk_test_51PkqrUAusfi4SBU0nV1EbD954JcfiSCaQdg7PjDDb9hQxb0r9335d3eSpZQlALEP9Sd3BtvwQ1tSS5vnDiwg5bjF00MWofR8GZ");
+    const stripe =  await loadStripe(import.meta.env.VITE_STRIPE_KEY);
+
   
     const body = {
       products: items   
@@ -36,7 +37,7 @@ const Dispatch = () => {
     };
   
     try {
-      const response = await axios.post("http://localhost:5000/create-checkout-sessions", body, { headers });
+      const response = await axios.post( `${import.meta.env.VITE_API_BASE_URL}/create-checkout-sessions`, body, { headers });
       const session = response.data;
   
       const result = await stripe.redirectToCheckout({
@@ -67,24 +68,24 @@ const Dispatch = () => {
 
           <div className=' flex flex-col'>
             <label  className=' font-bold mb-[4%]'>Full Name</label>
-            <input type="text" name='name' value={data.name} onChange={onchangeHandler} className=' hover:outline-blue-700  border lg:h-10 lg:w-32 outline-none duration-200 ease-in-out rounded-xl ' />
+            <input type="text" name='name' value={data.name} onChange={onchangeHandler} className='  border lg:h-10 lg:w-32 outline-none duration-200 ease-in-out rounded-xl ' />
           </div>
           <div className=' flex flex-col'>
             <label className='mb-[4%] font-bold lg:ml-[12%]'>
             Mobile no.
             </label>
-            <input type="text" name='Number' value={data.Number} onChange={onchangeHandler} className=' lg:h-10 lg:w-32 border   hover:outline-blue-700 outline-none duration-200 ease-in-out rounded-xl lg:ml-[30%]' />
+            <input type="text" name='Number' value={data.Number} onChange={onchangeHandler} className=' lg:h-10 lg:w-32 border   outline-none duration-200 ease-in-out rounded-xl lg:ml-[30%]' />
             </div>
             <div className=' flex flex-col '> 
 
             <label className='mb-[4%] font-bold lg:ml-[30%] ' >Email</label>
-            <input type="text" name='email ' value={data.email} onChange={onchangeHandler} className=' lg:h-10 lg:w-56 border  hover:outline-blue-700 outline-none duration-200 ease-in-out rounded-xl lg:ml-[30%]' />
+            <input type="text" name='email ' value={data.email} onChange={onchangeHandler} className=' lg:h-10 lg:w-56 border  outline-none duration-200 ease-in-out rounded-xl lg:ml-[30%]' />
             </div>
           </div>
       <div className=' lg:mt-[4%] flex flex-col'>
 
       <label className='font-bold'>Address</label>
-      <input type="text" name='address' value={data.address} onChange={onchangeHandler} className=' rounded-xl h-10 border  hover:outline-blue-700 outline-none duration-200 ease-in-out '  />
+      <input type="text" name='address' value={data.address} onChange={onchangeHandler} className=' rounded-xl h-10 border  outline-none duration-200 ease-in-out '  />
       </div>
         </div>
 
@@ -95,7 +96,7 @@ const Dispatch = () => {
         <div className='bg-gray-100 p-4   md:mt-[5%]  rounded-lg  lg:mt-[2%] lg:w-[100%] ' >
     <div className=' flex flex-col  md:mt-4'>
             <label  className=' font-bold  mb-[4%]'>Special Instructions</label>
-            <input name='instrucions' value={data.instructions} onChange={onchangeHandler} placeholder='Enter Special Instructions....i.e; allergies , recommendations etc' type="text" className=' hover:outline-blue-700  border lg:h-24 lg:w-[100%] md:h-44 sm:h-32 md:w-96 outline-none duration-200 ease-in-out rounded-xl '  />
+            <input name='instrucions' value={data.instructions} onChange={onchangeHandler} placeholder='Enter Special Instructions....i.e; allergies , recommendations etc' type="text" className='  border lg:h-24 lg:w-[100%] md:h-44 sm:h-32 md:w-96 outline-none duration-200 ease-in-out rounded-xl '  />
           
           </div>
         </div>
@@ -163,7 +164,7 @@ const Dispatch = () => {
                 <span>Grand total</span>
                 <span>${totalAmount+5}</span>
               </div>
-              <button  className="w-full py-3 bg-gray-500 hover:bg-blue-700 duration-200 ease-in-out text-white rounded">Place Order</button>
+              <button  className="w-full py-3 bg-gray-500 hover:bg-orange-500 duration-200 ease-in-out text-white rounded">Proceed with Payment</button>
             </div>
           </div>
 

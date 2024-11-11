@@ -60,20 +60,3 @@ export default cartSlice.reducer
 
 
 
-
-
-
-
-
-
-
-
-      // changeQuantity: (state, action) => {
-        //     const index = state.items.findIndex(item => item._id === action.payload._id)
-        //     if (index >= 0) {
-        //         const quantityDifference = action.payload.quantity - state.items[index].quantity
-        //         state.items[index].quantity = action.payload.quantity
-        //         state.totalQuantity += quantityDifference
-        //         state.totalAmount += quantityDifference * state.items[index].price
-        //     }
-        // },

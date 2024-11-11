@@ -4,25 +4,27 @@ import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 
 const Contact = () => {
-  const notify = () =>
-    toast.success("Feedback was sent successfully. Thank you!");
-
+ 
   const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs
-      .sendForm("service_caqq35d", "template_lg7p1pn", form.current, {
-        publicKey: "7HSKk-xd76xWIGwT3",
-      })
+      .sendForm(
+        `${import.meta.env.VITE_EMAILJS_SERVICEKEY}`,
+        `${import.meta.env.VITE_EMAILJS_TEMPKEY}`,
+        form.current, 
+        {
+          publicKey: `${import.meta.env.VITE_EMAILJS_PUBLICKEY}`,
+        }
+      )
       .then(
         () => {
-          notify();
-          console.log("SUCCESS!");
+          toast.success("Your Feedback was sent successfully");
         },
-        (error) => {
-          console.log("FAILED...", error.text);
+        (err) => {
+          toast.error("Error", err);
         }
       );
   };
